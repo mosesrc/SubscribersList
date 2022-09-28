@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en-US">
+<head>
+<title>Subscriber Edit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+<script defer
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<h4>Subscriber:</h4>
+				<p>
+					First Name: <span th:text="${subscriber.firstName}"></span>
+				</p>
+				<p>
+					Last Name: <span th:text="${subscriber.lastName}"></span>
+				</p>
+				<p>
+					User Name: <span th:text="${subscriber.userName}"></span>
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<form action="#" th:action="@{/updateSub/{id}(id=${subscriber.id})}"
+					th:object="${subscriber}" method="post">
+					<table>
+						<tr>
+							<td>First Name:</td>
+							<td><input type="text" th:field="*{firstName}" /></td>
+						</tr>
+						<tr>
+							<td>Last Name:</td>
+							<td><input type="text" th:field="*{lastName}"/></td>
+						</tr>
+						<tr>
+							<td>UserName:</td>
+							<td><input type="text" th:field="*{userName}"/></td>
+						</tr>
+						<tr>
+							<td>
+								<button type="submit">Edit</button>
+							</td>
+						</tr>
+					</table>
+					<input type="hidden" th:field="*{id}">
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+		integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+		crossorigin="anonymous"></script>
+</body>
+</html>
